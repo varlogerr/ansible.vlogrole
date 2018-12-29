@@ -1,0 +1,29 @@
+---
+- name: override defaults
+  set_fact:
+    _samba_shares:
+      global_template: "{{ samba_shares.global_template | default(_samba_shares_defaults.global_template) }}"
+      shares: "{{ samba_shares.shares | default(_samba_shares_defaults.shares) }}"
+
+- block:
+  - name: create global conf
+    template:
+      src: smbd-global.conf.j2
+      dest: /etc/samba/smbd-global.conf
+      owner: root
+      group: root
+      mode: 0644
+
+  - name: configure samba
+    lineinfile:
+      dest: /etc/samba/smb.conf
+      line: "include = /etc/samba/smbd-global.conf"
+    notify: restart samba
+  become: true
+  when: _samba_shares.global_template
+
+- include_tasks: create-share.yml
+  vars:
+    samba_shares_share: "{{ item }}"
+    samba_shares_share_conf_file: "/etc/samba/my-smbd-{{ item.name }}.conf"
+  with_items: "{{ _samba_shares.shares }}"

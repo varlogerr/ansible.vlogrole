@@ -1,0 +1,10 @@
+---
+_samba_shares_defaults:
+  global_template: false
+  shares: []
+  # - name: Share # required
+  #   dir: /home/vagrant/Share # required
+  #   user: vagrant # required
+  #   group: vagrant # required
+  #   file_mode: "0664" # optional, must be in quotes
+  #   dir_mode: "0775" # optional, must be in quotes
