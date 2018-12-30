@@ -19,3 +19,6 @@ Usage
         dir_mode: "0775" # file create mode, must be in quotes, optional. defults to samba defaults
 # ...
 ```
+
+dependencies:
+- uni.samba
