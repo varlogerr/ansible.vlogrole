@@ -1,4 +1,4 @@
 ---
 dependencies:
-  - vlog.myconf
-  - uni.helper-facts
+- uni.helper-facts
+- vlog.myconf

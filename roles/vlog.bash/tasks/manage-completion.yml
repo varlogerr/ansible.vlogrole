@@ -1,0 +1,11 @@
+---
+- name: install bash completion
+  apt: name=bash-completion state=present
+  when: helper_facts_distro.osfamily == 'debian'
+  become: true
+
+- name: configure bash completion
+  lineinfile:
+    dest: "{{ _bash.bashrc_path }}"
+    line: ". /usr/share/bash-completion/bash_completion"
+    state: present

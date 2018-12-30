@@ -1,6 +1,5 @@
 ---
 _bash_defaults:
-  completion: false
   prompt: false
 
 _bash:

@@ -3,35 +3,11 @@
   set_fact:
     _bash:
       prompt: "{{ bash.prompt | default(_bash_defaults.prompt) }}"
-      completion: "{{ bash.completion | default(_bash_defaults.completion) }}"
       bashrc_path: "{{ _bash.bashrc_path }}"
       prompt_conf_path: "{{ _bash.prompt_conf_path }}"
 
 - name: create bashrc file
   file: path="{{ _bash.bashrc_path }}" state=file mode=0644
 
-- block:
-
-  - name: install bash completion
-    apt: name=bash-completion state=present
-    when: helper_facts_distro.osfamily == 'debian'
-    become: true
-
-  - name: configure bash completion
-    lineinfile:
-      dest: "{{ _bash.bashrc_path }}"
-      line: ". /usr/share/bash-completion/bash_completion"
-
-  when: _bash.completion
-
-- block:
-
-  - name: create custom bashrc prompt config
-    copy: src=bashrc_prompt dest="{{ _bash.prompt_conf_path }}" mode=0700
-
-  - name: include custom bashrc prompt config to bashrc
-    lineinfile:
-      dest: "{{ _bash.bashrc_path }}"
-      line: ". {{ _bash.prompt_conf_path }}"
-
-  when: _bash.prompt
+- include_tasks: manage-completion.yml
+- include_tasks: manage-prompt.yml
