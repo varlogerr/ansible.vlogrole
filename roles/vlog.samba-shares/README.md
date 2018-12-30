@@ -1,4 +1,6 @@
-Configure samba shares
+Install samba server and configure samba shares
+
+It's not production ready by any means, only for private use in a LAN or virtualbox
 
 Usage
 ```
