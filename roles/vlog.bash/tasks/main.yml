@@ -32,6 +32,6 @@
   - name: include custom bashrc prompt config to bashrc
     lineinfile:
       dest: "{{ _bash.bashrc_path }}"
-      line: "source {{ _bash.prompt_conf_path }}"
+      line: ". {{ _bash.prompt_conf_path }}"
 
   when: _bash.prompt
