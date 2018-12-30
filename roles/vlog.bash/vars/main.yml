@@ -1,0 +1,8 @@
+---
+_bash_defaults:
+  completion: false
+  prompt: false
+
+_bash:
+  bashrc_path: "{{ ansible_user_dir }}/.bashrc"
+  prompt_conf_path: "{{ myconf.dir }}/.bashrc_prompt"
