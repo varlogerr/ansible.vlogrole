@@ -1,0 +1,3 @@
+---
+- name: create configuration directory
+  file: path="{{ myconf.dir }}" state=directory mode=0700
