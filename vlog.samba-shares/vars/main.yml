@@ -8,3 +8,6 @@ _samba_shares_defaults:
   #   group: vagrant # required
   #   file_mode: "0664" # optional, must be in quotes
   #   dir_mode: "0775" # optional, must be in quotes
+
+_samba_shares:
+  conf_dir: "/etc/samba/ansible-managed-conf"

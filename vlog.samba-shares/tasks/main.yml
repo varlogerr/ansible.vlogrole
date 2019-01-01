@@ -4,6 +4,7 @@
     _samba_shares:
       global_template: "{{ samba_shares.global_template | default(_samba_shares_defaults.global_template) }}"
       shares: "{{ samba_shares.shares | default(_samba_shares_defaults.shares) }}"
+      conf_dir: "{{ _samba_shares.conf_dir }}"
 
 - block:
   - name: create global conf
@@ -22,8 +23,12 @@
   become: true
   when: _samba_shares.global_template
 
+- name: create ansible managed config directory
+  file: path="{{ _samba_shares.conf_dir }}" state=directory
+  become: true
+
 - include_tasks: create-share.yml
   vars:
     samba_shares_share: "{{ item }}"
-    samba_shares_share_conf_file: "/etc/samba/my-smbd-{{ item.name }}.conf"
+    samba_shares_share_conf_file: "{{ _samba_shares.conf_dir }}/{{ item.name }}.conf"
   with_items: "{{ _samba_shares.shares }}"
