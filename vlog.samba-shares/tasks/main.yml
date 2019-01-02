@@ -32,3 +32,5 @@
     samba_shares_share: "{{ item }}"
     samba_shares_share_conf_file: "{{ _samba_shares.conf_dir }}/{{ item.name }}.conf"
   with_items: "{{ _samba_shares.shares }}"
+
+- include_tasks: clean-up-shares.yml

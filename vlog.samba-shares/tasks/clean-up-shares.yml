@@ -1,0 +1,38 @@
+---
+- set_fact:
+    _samba_shares_rm_paths: []
+    _samba_shares_added_paths: []
+
+- name: gather share configurations
+  find:
+    paths: "{{ _samba_shares.conf_dir }}"
+    patterns: '*.conf'
+    file_type: file
+    recurse: no
+  register: _samba_shares_all
+
+- name: make created shares configuration list
+  set_fact:
+    _samba_shares_added_paths: "{{ _samba_shares_added_paths }} + ['{{_samba_shares.conf_dir}}/{{ item.name }}.conf']"
+  with_items: "{{ _samba_shares.shares }}"
+
+- name: gather old configuration
+  set_fact:
+    _samba_shares_rm_paths: "{{ _samba_shares_rm_paths }} + ['{{ item.path }}']"
+  when: item.path not in _samba_shares_added_paths
+  with_items: "{{ _samba_shares_all.files }}"
+
+- name: clean up samba main config
+  lineinfile:
+    dest: /etc/samba/smb.conf
+    line: "include = {{ item }}"
+    state: absent
+  with_items: "{{ _samba_shares_rm_paths }}"
+  notify: restart samba
+  become: true
+
+- name: remove config files
+  file: path="{{ item }}" state=absent
+  with_items: "{{ _samba_shares_rm_paths }}"
+  notify: restart samba
+  become: true
