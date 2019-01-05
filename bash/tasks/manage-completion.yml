@@ -1,7 +1,6 @@
 ---
 - name: install bash completion
-  apt: name=bash-completion state=present
-  when: xfacts.distro.osfamily == 'debian'
+  package: name=bash-completion state=present
   become: true
 
 - name: configure bash completion
