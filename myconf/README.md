@@ -5,6 +5,6 @@ Usage
 ---
 # ...
   roles:
-  - role: vlog.myconf
+  - role: myconf
 # ...
 ```

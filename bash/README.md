@@ -5,7 +5,7 @@ Usage
 ---
 # ...
   roles:
-  - role: vlog.bash
+  - role: bash
     bash:
       prompt: true # install custom prompt from templates, optional. defaults to false
 # ...
@@ -13,4 +13,4 @@ Usage
 
 dependencies:
 - xfacts
-- vlog.myconf
+- myconf

@@ -7,7 +7,7 @@ Usage
 ---
 # ...
   roles:
-  - role: vlog.samba-shares
+  - role: samba-shares
     samba_shares:
       global_template: true # install global template, optional. defaults to false
       shares: # list of shares, optional. defaults to []
