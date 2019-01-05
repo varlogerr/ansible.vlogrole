@@ -21,4 +21,4 @@ Usage
 ```
 
 dependencies:
-- uni.samba-install
+- samba-install

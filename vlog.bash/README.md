@@ -12,5 +12,5 @@ Usage
 ```
 
 dependencies:
-- uni.xfacts
+- xfacts
 - vlog.myconf
