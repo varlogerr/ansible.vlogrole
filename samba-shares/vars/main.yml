@@ -3,9 +3,9 @@ _samba_shares_defaults:
   global_template: false
   shares: []
   # - name: Share # required
-  #   dir: /home/vagrant/Share # required
-  #   user: vagrant # required
-  #   group: vagrant # required
+  #   dir: "{{ xfacts.user.homedir }}/Share" # required
+  #   user: "{{ xfacts.user.name }}" # required
+  #   group: "{{ xfacts.user.group }}" # required
   #   file_mode: "0664" # optional, must be in quotes
   #   dir_mode: "0775" # optional, must be in quotes
 
