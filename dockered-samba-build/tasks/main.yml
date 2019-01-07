@@ -1,0 +1,8 @@
+---
+- name: copy build files
+  
+
+- name: build an image
+  docker_image:
+    path: /usr/src/dockered-samba
+    name: localhost/samba
