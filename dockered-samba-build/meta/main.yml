@@ -1,3 +1,4 @@
 ---
+dependencies:
 - docker-install
 - pip-install-docker-module
