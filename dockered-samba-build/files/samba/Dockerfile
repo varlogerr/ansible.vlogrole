@@ -17,6 +17,7 @@ RUN mkdir ${SAMBA_CUSTOM_CONF_DIR}
 
 ADD https://github.com/krallin/tini/releases/download/${TINI_VERSION}/tini /usr/local/bin
 COPY docker-entrypoint.sh /usr/local/bin
+COPY smb.conf /etc/samba
 
 RUN  cd /usr/local/bin \
   && chmod +x tini \

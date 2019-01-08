@@ -13,7 +13,7 @@ while read var_name; do
   share_conf=${!var_name}
   custom_conf_path="${SAMBA_CUSTOM_CONF_DIR}/${share_name}.conf"
 
-  echo "[${share_name}]\n${share_conf}" | tee "${custom_conf_path}"
+  echo "${share_conf}" | tee "${custom_conf_path}"
   echo "include = ${custom_conf_path}" | tee -a ${SAMBA_CONF}
 done <<< "$(compgen -e | grep ^SAMBA_SHARE_)"
 
