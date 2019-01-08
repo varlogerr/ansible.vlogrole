@@ -2,7 +2,7 @@ FROM debian:9.6
 LABEL maintainer="Varlog <varlog.err@gmail.com>"
 
 ENV TINI_VERSION=v0.18.0
-ENV DATA_DIR=/app
+ENV DATA_DIR=/data
 ENV SAMBA_CONF_DIR=/etc/samba
 ENV SAMBA_CONF=${SAMBA_CONF_DIR}/smb.conf
 ENV SAMBA_CUSTOM_CONF_DIR=${SAMBA_CONF_DIR}/conf.d
@@ -30,12 +30,15 @@ RUN addgroup -q --gid 1000 ${SMBSHARE_GROUP} \
       --home /home/${SMBSHARE_USER} \
       --uid 1000 ${SMBSHARE_USER}
 
+# # add smbshare user to samba
+# RUN (echo mypassword; echo mypassword) | smbpasswd -sa ${SMBSHARE_USER}
+
 # change binaries permission
 RUN  cd /usr/local/bin \
   && chmod +x tini \
   && chmod +x docker-entrypoint.sh
 
-VOLUME ["/data"]
+VOLUME ["${DATA_DIR}"]
 
 EXPOSE 445
 

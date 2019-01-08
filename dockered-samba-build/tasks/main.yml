@@ -3,7 +3,7 @@
   copy: src=files/samba/ dest=/usr/src/dockered-samba
   become: true
 
-- name: build an image
+- name: build image
   docker_image:
     path: /usr/src/dockered-samba
     name: localhost/samba
