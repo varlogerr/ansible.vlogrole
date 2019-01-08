@@ -6,6 +6,8 @@ ENV DATA_DIR=/app
 ENV SAMBA_CONF_DIR=/etc/samba
 ENV SAMBA_CONF=${SAMBA_CONF_DIR}/smb.conf
 ENV SAMBA_CUSTOM_CONF_DIR=${SAMBA_CONF_DIR}/conf.d
+ENV SMBSHARE_USER=smbshare
+ENV SMBSHARE_GROUP=smbshare
 
 # install samba
 RUN  apt-get update \
@@ -15,10 +17,20 @@ RUN  apt-get update \
 # create custom config directory
 RUN mkdir ${SAMBA_CUSTOM_CONF_DIR}
 
+# copy assets
 ADD https://github.com/krallin/tini/releases/download/${TINI_VERSION}/tini /usr/local/bin
 COPY docker-entrypoint.sh /usr/local/bin
 COPY smb.conf /etc/samba
 
+# create smbshare user
+RUN addgroup -q --gid 1000 ${SMBSHARE_GROUP} \
+    && adduser -q --disabled-login \
+      --ingroup ${SMBSHARE_GROUP} \
+      --shell /bin/bash --gecos ",,," \
+      --home /home/${SMBSHARE_USER} \
+      --uid 1000 ${SMBSHARE_USER}
+
+# change binaries permission
 RUN  cd /usr/local/bin \
   && chmod +x tini \
   && chmod +x docker-entrypoint.sh
