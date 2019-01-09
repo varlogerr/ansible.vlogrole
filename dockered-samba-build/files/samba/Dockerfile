@@ -6,8 +6,8 @@ ENV DATA_DIR=/data
 ENV SAMBA_CONF_DIR=/etc/samba
 ENV SAMBA_CONF=${SAMBA_CONF_DIR}/smb.conf
 ENV SAMBA_CUSTOM_CONF_DIR=${SAMBA_CONF_DIR}/conf.d
-ENV SMBSHARE_USER=smbshare
-ENV SMBSHARE_GROUP=smbshare
+ENV SMBSHARE_USER=sam
+ENV SMBSHARE_GROUP=sam
 
 # install samba
 RUN  apt-get update \
