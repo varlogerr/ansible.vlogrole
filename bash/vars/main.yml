@@ -1,3 +1,3 @@
 ---
 bash_bashrc_path: "{{ xfacts.user.homedir }}/.bashrc"
-bash_prompt_conf_path: "{{ myconf.dir }}/.bashrc_prompt"
+bash_prompt_conf_path: "{{ myconf_dir }}/.bashrc_prompt"

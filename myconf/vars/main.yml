@@ -1,3 +1,2 @@
 ---
-myconf:
-  dir: "{{ xfacts.user.homedir }}/.myconf"
+myconf_dir: "{{ xfacts.user.homedir }}/.myconf"
