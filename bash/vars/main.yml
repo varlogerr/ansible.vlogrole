@@ -1,7 +1,3 @@
 ---
-_bash_defaults:
-  prompt: false
-
-_bash:
-  bashrc_path: "{{ xfacts.user.homedir }}/.bashrc"
-  prompt_conf_path: "{{ myconf.dir }}/.bashrc_prompt"
+bash_bashrc_path: "{{ xfacts.user.homedir }}/.bashrc"
+bash_prompt_conf_path: "{{ myconf.dir }}/.bashrc_prompt"

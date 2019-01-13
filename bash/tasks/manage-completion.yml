@@ -5,6 +5,6 @@
 
 - name: configure bash completion
   lineinfile:
-    dest: "{{ _bash.bashrc_path }}"
+    dest: "{{ bash_bashrc_path }}"
     line: ". /usr/share/bash-completion/bash_completion"
     state: present

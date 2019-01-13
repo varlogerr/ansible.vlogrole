@@ -6,8 +6,7 @@ Usage
 # ...
   roles:
   - role: bash
-    bash:
-      prompt: true # install custom prompt from templates, optional. defaults to false
+    bash_change_prompt: true # install custom prompt from templates, optional. defaults to false
 # ...
 ```
 

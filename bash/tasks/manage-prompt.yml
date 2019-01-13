@@ -1,22 +1,22 @@
 ---
 - block:
-  - name: create custom bashrc prompt config
-    copy: src=bashrc_prompt dest="{{ _bash.prompt_conf_path }}" mode=0700
+  - name: copy custom bashrc prompt config
+    copy: src=bashrc_prompt dest="{{ bash_prompt_conf_path }}" mode=0700
 
   - name: include custom bashrc prompt config to bashrc
     lineinfile:
-      dest: "{{ _bash.bashrc_path }}"
-      line: ". {{ _bash.prompt_conf_path }}"
+      dest: "{{ bash_bashrc_path }}"
+      line: ". {{ bash_prompt_conf_path }}"
       state: present
-  when: _bash.prompt
+  when: bash_change_prompt
 
 - block:
   - name: delete custom bashrc prompt config
-    file: path="{{ _bash.prompt_conf_path }}" state=absent
+    file: path="{{ bash_prompt_conf_path }}" state=absent
 
   - name: exclude custom bashrc prompt config from bashrc
     lineinfile:
-      dest: "{{ _bash.bashrc_path }}"
-      line: ". {{ _bash.prompt_conf_path }}"
+      dest: "{{ bash_bashrc_path }}"
+      line: ". {{ bash_prompt_conf_path }}"
       state: absent
-  when: not _bash.prompt
+  when: not bash_change_prompt
