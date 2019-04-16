@@ -1,0 +1,6 @@
+---
+desk_dir: "{{ xfacts.user.homedir }}/.desk"
+desk_desks_dir: "{{ desk_dir }}/desks"
+desk_completion_url: "https://raw.githubusercontent.com/jamesob/desk/v{{ desk_version }}/shell_plugins/bash/desk"
+desk_completion_path: "{{ myconf_dir }}/desk_completion_{{ desk_version }}"
+desk_bashrc_path: "{{ myconf_dir }}/.desk_bashrc"

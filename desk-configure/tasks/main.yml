@@ -1,0 +1,29 @@
+---
+- name: initialize desk dirs
+  file: name="{{ item }}" state=directory
+  with_items: "{{ [desk_dir] + [desk_desks_dir] }}"
+
+- name: configure bash
+  lineinfile:
+    dest: "{{ bash_bashrc_path }}"
+    line: "[ -n \"$DESK_ENV\" ] && source \"$DESK_ENV\" || true"
+    state: present
+
+- name: pull in desk completion
+  get_url:
+    url: "{{ desk_completion_url }}"
+    dest: "{{ desk_completion_path }}"
+    mode: 0600
+
+- name: create desk bashrc
+  template: src=desk_bashrc dest="{{ desk_bashrc_path }}" mode=0600
+
+- name: configure bash
+  lineinfile:
+    dest: "{{ bash_bashrc_path }}"
+    line: ". {{ desk_bashrc_path }}"
+    state: present
+
+- name: create desk
+  copy: src="{{ item }}" dest="{{ desk_desks_dir }}" mode=0600
+  with_items: "{{ desk_desks + ['demo.sh'] }}"

@@ -1,0 +1,6 @@
+---
+dependencies:
+- bash
+- desk-install
+- xfacts
+- myconf
