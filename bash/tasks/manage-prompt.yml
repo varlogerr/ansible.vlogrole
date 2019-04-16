@@ -1,7 +1,7 @@
 ---
 - block:
   - name: copy custom bashrc prompt config
-    copy: src=bashrc_prompt dest="{{ bash_prompt_conf_path }}" mode=0700
+    copy: src=bashrc_prompt dest="{{ bash_prompt_conf_path }}" mode=0600
 
   - name: include custom bashrc prompt config to bashrc
     lineinfile:
