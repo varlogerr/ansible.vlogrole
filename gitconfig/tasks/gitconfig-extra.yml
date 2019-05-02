@@ -1,0 +1,10 @@
+---
+- name: add extra config option
+  ini_file:
+    path: "{{ gitconfig_custom_config_path }}"
+    section: "{{ _gitconfig_extra.key }}"
+    option: "{{ item.key }}"
+    value: "{{ item.value }}"
+    create: yes
+    mode: 0600
+  with_dict: "{{ _gitconfig_extra.value }}"

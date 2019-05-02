@@ -1,0 +1,20 @@
+---
+- name: create custom gitconfig
+  command: "touch {{ gitconfig_custom_config_path }}"
+  args:
+    creates: "{{ gitconfig_custom_config_path }}"
+    warn: false
+
+- include_tasks: gitconfig-extra.yml
+  with_dict: "{{ gitconfig_extraconf }}"
+  loop_control:
+    loop_var: _gitconfig_extra
+
+- name: include custom gitconfig to default gitconfig
+  ini_file:
+    path: "{{ gitconfig_config_path }}"
+    section: include
+    option: path
+    value: "{{ gitconfig_custom_config_path }}"
+    create: yes
+    mode: 0600

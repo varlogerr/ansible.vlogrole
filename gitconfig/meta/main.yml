@@ -1,0 +1,6 @@
+---
+dependencies:
+  - git-install
+  - bash
+  - myconf
+  - xfacts

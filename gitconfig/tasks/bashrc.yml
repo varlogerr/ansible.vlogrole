@@ -1,0 +1,11 @@
+---
+- block:
+  - name: create prompt config for git
+    copy: src=git_bashrc_prompt dest="{{ gitconfig_bashrc_prompt_path }}" mode=0700
+
+  - name: include prompt config to bashrc
+    lineinfile:
+      dest: "{{ bash_bashrc_path }}"
+      create: yes
+      line: ". {{ gitconfig_bashrc_prompt_path }}"
+  when: gitconfig_prompt

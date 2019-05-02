@@ -1,0 +1,8 @@
+---
+gitconfig_prompt: false
+# exctra configuration. example
+# gitconfig_extraconf:
+#   user:
+#     name: foo
+#     email: foo@bar.baz
+gitconfig_extraconf: {}
