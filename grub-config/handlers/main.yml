@@ -1,0 +1,5 @@
+---
+- block:
+  - name: update grub
+    command: update-grub
+  become: true

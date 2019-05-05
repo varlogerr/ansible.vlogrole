@@ -1,0 +1,13 @@
+{
+    "terminal.integrated.fontSize": 13,
+    "editor.minimap.enabled": false,
+
+    "[elixir]": {
+        "editor.tabSize": 2,
+        "editor.insertSpaces": true
+    },
+    "[json]": {
+        "editor.tabSize": 2,
+        "editor.insertSpaces": true
+    }
+}

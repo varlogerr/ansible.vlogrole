@@ -1,0 +1,6 @@
+---
+- name: create autostart directory
+  file:
+    path: "{{ autostart_dir }}"
+    state: directory
+    mode: 0755

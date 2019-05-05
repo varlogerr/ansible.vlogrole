@@ -1,0 +1,9 @@
+---
+- name: create configuration directory
+  file: path="{{ vscode_user_conf_dir }}" state=directory mode=0700
+
+- name: create config
+  copy: src=settings dest="{{ vscode_user_conf_dir }}/settings.json" mode=0664
+
+- name: create key bindings
+  copy: src=keybindings dest="{{ vscode_user_conf_dir }}/keybindings.json" mode=0644

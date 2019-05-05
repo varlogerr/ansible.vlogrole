@@ -1,0 +1,3 @@
+---
+- name: set deluge autostart
+  copy: src=deluge.desktop dest="{{ deluge_autostart_path }}" mode=0664

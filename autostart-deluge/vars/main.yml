@@ -1,0 +1,2 @@
+---
+deluge_autostart_path: "{{ autostart_dir }}/deluge.desktop"

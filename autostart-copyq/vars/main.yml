@@ -1,0 +1,2 @@
+---
+copyq_autostart_path: "{{ autostart_dir }}/copyq.desktop"

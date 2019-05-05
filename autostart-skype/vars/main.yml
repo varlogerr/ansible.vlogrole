@@ -1,0 +1,2 @@
+---
+skype_autostart_path: "{{ autostart_dir }}/skypeforlinux.desktop"

@@ -1,0 +1,2 @@
+---
+vscode_user_conf_dir: "{{ xfacts.user.homedir }}/.config/Code/User"

@@ -1,0 +1,3 @@
+---
+- name: set copyq autostart
+  copy: src=copyq.desktop dest="{{ copyq_autostart_path }}" mode=0664

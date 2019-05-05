@@ -1,0 +1,18 @@
+[Desktop Entry]
+Version=1.0
+Name=Deluge
+TryExec=deluge-gtk
+Exec=deluge-gtk %U
+Icon=deluge
+Terminal=false
+Type=Application
+Categories=Network;FileTransfer;P2P;GTK;
+StartupWMClass=Deluge
+StartupNotify=true
+MimeType=application/x-bittorrent;x-scheme-handler/magnet;
+X-GNOME-Autostart-enabled=true
+NoDisplay=false
+Hidden=false
+Name[en_US]=Deluge
+Comment[en_US]=Download and share files over BitTorrent
+X-GNOME-Autostart-Delay=0

@@ -1,0 +1,2 @@
+---
+autostart_dir: "{{ xfacts.user.homedir }}/.config/autostart"
