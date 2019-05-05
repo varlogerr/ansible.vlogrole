@@ -8,7 +8,7 @@
       dest: "{{ bash_bashrc_path }}"
       line: ". {{ bash_prompt_conf_path }}"
       state: present
-  when: bash_change_prompt
+  when: bash_change_prompt|bool
 
 - block:
   - name: delete custom bashrc prompt config

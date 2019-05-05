@@ -8,4 +8,4 @@
       dest: "{{ bash_bashrc_path }}"
       create: yes
       line: ". {{ gitconfig_bashrc_prompt_path }}"
-  when: gitconfig_prompt
+  when: gitconfig_prompt|bool
