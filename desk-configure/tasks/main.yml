@@ -26,4 +26,4 @@
 
 - name: create desk
   copy: src="{{ item }}" dest="{{ desk_desks_dir }}" mode=0600
-  with_items: "{{ desk_desks + ['demo.sh'] }}"
+  with_items: "{{ desk_files + ['demo.sh'] }}"

@@ -6,7 +6,7 @@ Usage
 # ...
   roles:
   - role: desk-configure
-    desk_desks: # more desks to install. defaults to []
+    desk_files: # more desk files to install. defaults to []
     - go.sh
 # ...
 ```
