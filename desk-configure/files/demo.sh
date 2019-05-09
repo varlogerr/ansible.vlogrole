@@ -11,4 +11,4 @@ print_demo() {
 
 print_demo
 
-export PS1="${PS1}\[\033[01;34m\]${DESK_NAME}\[\033[00m\] > "
+PS1="${PS1}\[\033[01;34m\]${DESK_NAME}\[\033[00m\] > "
