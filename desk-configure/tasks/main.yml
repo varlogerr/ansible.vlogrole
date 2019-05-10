@@ -24,6 +24,6 @@
     line: ". {{ desk_bashrc_path }}"
     state: present
 
-- name: create desk
-  copy: src="{{ item }}" dest="{{ desk_desks_dir }}" mode=0600
-  with_items: "{{ desk_files + ['demo.sh'] }}"
+- name: create desks
+  template: src="{{ item }}" dest="{{ desk_desks_dir }}" mode=0600
+  loop: "{{ desk_files + ['demo.sh'] }}"
