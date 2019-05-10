@@ -5,8 +5,10 @@
 
 cd ~
 
+export DEMO_MSG="\"${DESK_NAME}\" desk"
+
 print_demo() {
-  echo "Entring \"${DESK_NAME}\" desk"
+  echo "Entring ${DEMO_MSG}"
 }
 
 print_demo
