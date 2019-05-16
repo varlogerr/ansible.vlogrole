@@ -1,7 +1,16 @@
 ---
 - block:
+  - block:
+    - name: install git completion
+      get_url:
+        url: https://raw.githubusercontent.com/git/git/master/contrib/completion/git-prompt.sh
+        dest: "{{ gitconfig_completion_path }}"
+        mode: 0755
+    when: xfacts.distro.osfamily == 'redhat'
+    become: true
+
   - name: create prompt config for git
-    copy: src=git_bashrc_prompt dest="{{ gitconfig_bashrc_prompt_path }}" mode=0700
+    template: src=git_bashrc_prompt dest="{{ gitconfig_bashrc_prompt_path }}" mode=0700
 
   - name: include prompt config to bashrc
     lineinfile:

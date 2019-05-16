@@ -2,3 +2,4 @@
 gitconfig_bashrc_prompt_path: "{{ myconf_dir }}/.git_bashrc_prompt"
 gitconfig_config_path: "{{ xfacts.user.homedir }}/.gitconfig"
 gitconfig_custom_config_path: "{{ myconf_dir }}/.git_gitconfig"
+gitconfig_completion_path: /etc/bash_completion.d/git-prompt
