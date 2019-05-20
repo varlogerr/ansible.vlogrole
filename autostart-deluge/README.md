@@ -5,6 +5,6 @@ Usage
 ---
 # ...
   roles:
-  - role: deluge-copyq
+  - role: autostart-deluge
 # ...
 ```
