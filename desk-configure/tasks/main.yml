@@ -9,20 +9,22 @@
     line: "[ -n \"$DESK_ENV\" ] && source \"$DESK_ENV\" || true"
     state: present
 
-- name: pull in desk completion
-  get_url:
-    url: "{{ desk_completion_url }}"
-    dest: "{{ desk_completion_path }}"
-    mode: 0600
+- block:
+  - name: pull in desk completion
+    get_url:
+      url: "{{ desk_completion_url }}"
+      dest: "{{ desk_completion_path }}"
+      mode: 0600
 
-- name: create desk bashrc
-  template: src=desk_bashrc dest="{{ desk_bashrc_path }}" mode=0600
+  - name: create desk bashrc
+    template: src=desk_bashrc dest="{{ desk_bashrc_path }}" mode=0600
 
-- name: configure bash
-  lineinfile:
-    dest: "{{ bash_bashrc_path }}"
-    line: ". {{ desk_bashrc_path }}"
-    state: present
+  - name: configure bash
+    lineinfile:
+      dest: "{{ bash_bashrc_path }}"
+      line: ". {{ desk_bashrc_path }}"
+      state: present
+  when: desk_completion | bool
 
 - name: create desks
   template: src="{{ item }}" dest="{{ desk_desks_dir }}" mode=0600
