@@ -1,4 +1,5 @@
-Configure desk and installs demo.sh desk
+Configure desk and installs demo.sh desk  
+This role doesn't require desk to be installed
 
 Usage
 ```
