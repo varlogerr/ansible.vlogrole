@@ -29,3 +29,7 @@
 - name: create desks
   template: src="{{ item }}" dest="{{ desk_desks_dir }}" mode=0600
   loop: "{{ desk_files + ['demo.sh'] }}"
+
+- name: create desks
+  template: src="{{ item }}" dest="{{ desk_desks_dir }}" mode=0600
+  with_fileglob: "{{ desk_fileglobs }}"

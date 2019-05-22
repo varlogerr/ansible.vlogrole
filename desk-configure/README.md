@@ -8,6 +8,8 @@ Usage
   roles:
   - role: desk-configure
     desk_files: # more desk files to install. defaults to []
-    - go.sh
+    - "{{ playbook_dir + '/extra/more-desk/templates/*.sh' }}"
+    desk_fileglobs: # more desk files to install. defaults to []
+    - "{{ playbook_dir + '/extra/desk/templates/*.sh' }}"
 # ...
 ```
